@@ -1,36 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:news/models/searchResponce.dart';
-import 'package:news/screens/searchScreen.dart';
+import 'package:news/screens/search/search_bar_anmaition.dart';
+
 import 'package:provider/provider.dart';
 
-import '../shared/app_provider.dart';
-import '../shared/network/remote/api_manager.dart';
+import '../../models/searchResponce.dart';
+import '../../shared/app_provider.dart';
+import '../../shared/network/remote/api_manager.dart';
 
-
-class SearchControler extends StatefulWidget {
-  List<Articles> articals;
-
-
-  SearchControler(this.articals);
-
-  @override
-  State<SearchControler> createState() => _SearchControler();
-}
-
-class _SearchControler extends State<SearchControler> {
-  int isSelectedIndex = 0;
-bool ischanged=true;
+class SearchScreen extends StatelessWidget {
+static const String routeName='searchScreen';
+List<Articles> articles=[] ;
   @override
   Widget build(BuildContext context) {
     var provider=Provider.of<AppProvider>(context);
 
-    return DefaultTabController(
-      
-      length: widget.articals.length,
-      child: FutureBuilder<SearchResponce>(
-        future: ApiManager.SearchInAll(provider.query),
+    return Scaffold(
+      appBar: AppBar(
+        actions: [
+           SearchIconBar(),
+        ],
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        iconTheme: IconThemeData(color: Colors.black),
+      ),
+      body:DefaultTabController(
+
+        length: articles.length,
+        child: FutureBuilder<SearchResponce>(
+          future: ApiManager.SearchInAll('sports'),
 
           builder: (context, snapshot) {
+            if(provider.query==''){
+              Text('No search done ',style: TextStyle(color: Colors.red),);
+            }
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(child: CircularProgressIndicator());
             }
@@ -49,7 +52,7 @@ bool ischanged=true;
                 child: Column(
                   children: [
                     Text(snapshot.data?.message ?? 'style: TextStyle(color: Colors.black)'),
-                    TextButton(onPressed: () {}, child: Text('Try Again')),
+                    TextButton(onPressed: () {}, child: Text(' Again')),
                   ],
                 ),
               );
@@ -57,14 +60,15 @@ bool ischanged=true;
             var artical=snapshot.data?.articles??[];
             return Expanded(
               child: ListView.builder(
-                  itemBuilder:(context, index) {
-                    return ;
-                  },
+                itemBuilder:(context, index) {
+                  return Container() ;
+                },
                 itemCount: artical.length,
-                   ),
+              ),
             );
           },
 
+        ),
       ),
     );
   }

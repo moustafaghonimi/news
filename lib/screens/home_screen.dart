@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:news/models/catogerie.dart';
-import 'package:news/screens/tab_controler.dart';
 
 import '../models/soursesResponse.dart';
 import '../shared/network/remote/api_manager.dart';
+import 'news/tab_controler.dart';
 
 class HomeScreen extends StatelessWidget {
  Catogrey catogrey;

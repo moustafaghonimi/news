@@ -4,9 +4,9 @@ import 'package:news/models/catogerie.dart';
 
 
 import '../screens/catogeries/catogeries_Screen.dart';
-import '../screens/drawer_screen.dart';
 import '../screens/home_screen.dart';
-import '../screens/searchScreen.dart';
+import '../screens/news/drawer_screen.dart';
+import '../screens/search/searchScreen.dart';
 
 
 class HomeLayout extends StatefulWidget {

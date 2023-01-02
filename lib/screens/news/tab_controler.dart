@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:news/models/newsResponces.dart';
-import 'package:news/screens/tab_item.dart';
+import 'package:news/screens/news/tab_item.dart';
 import 'package:provider/provider.dart';
 
-import '../models/soursesResponse.dart';
-import '../shared/app_provider.dart';
-import '../shared/network/remote/api_manager.dart';
+
+import '../../models/soursesResponse.dart';
+import '../../shared/app_provider.dart';
+import '../../shared/network/remote/api_manager.dart';
 import 'news_item.dart';
 
 

@@ -4,7 +4,8 @@ import 'package:news/shared/network/remote/api_manager.dart';
 import 'package:provider/provider.dart';
 import 'package:searchbar_animation/searchbar_animation.dart';
 
-import '../shared/app_provider.dart';
+import '../../shared/app_provider.dart';
+
 
 class SearchIconBar extends StatelessWidget {
   TextEditingController controller =TextEditingController();
