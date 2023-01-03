@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:news/layout/home_layout.dart';
 
 class DrawerScreen extends StatelessWidget {
 Function drawerAction;

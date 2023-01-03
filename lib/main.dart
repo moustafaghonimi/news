@@ -6,18 +6,15 @@ import 'package:news/shared/app_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-      create: (context) => AppProvider(), child: MyApp()));
+  runApp( MyApp());
 }
 
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    var provider=Provider.of<AppProvider>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: HomeLayout.routeName,

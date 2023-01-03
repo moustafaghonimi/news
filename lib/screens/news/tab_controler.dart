@@ -24,7 +24,6 @@ class _TapControlerScreenState extends State<TapControlerScreen> {
 bool ischanged=true;
   @override
   Widget build(BuildContext context) {
-    var provider=Provider.of<AppProvider>(context);
 
     return DefaultTabController(
       
@@ -48,7 +47,7 @@ bool ischanged=true;
                 .toList(),
           ),
           FutureBuilder<NewsResponces>(
-            future: ApiManager.getNews(widget.sources[isSelectedIndex].id!),
+            future: ApiManager.getNews(sourseId: widget.sources[isSelectedIndex].id!),
 
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
